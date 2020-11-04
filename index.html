@@ -1,0 +1,110 @@
+<!-- aframe documentation: https://aframe.io/docs/1.0.0/introduction/ -->
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>aframe empty template</title>
+	<script src="./libraries/aframe-1.0.4.min.js"></script>
+	<script src="./libraries/aframe_ply_pointcloud_loader.js"></script>
+</head>
+
+<body>
+		<a-scene vr-mode-ui="enabled: false"
+						 loading-screen="enabled: false"
+						 background="color: red">
+
+			<!-- pre-load your assets(models, videos, images etc.) here -->
+			<a-assets>
+				<a-asset-item id="rock-glb" src="./models/bancofinalissimo.glb" response-type="arraybuffer"></a-asset-item>
+				<a-asset-item id="rock-ply" src="./models/rock-pointcloud.ply" response-type="arraybuffer"></a-asset-item>
+    		<video id="rocks-mp4" muted autoplay loop="true" src="./video/rocks.mp4"></video>
+				<img id="ceu" src="./models/forest.jpg">
+				<audio id="song-mp3" src="./audio/song-mp3.mp3" preload="auto"></audio>
+			</a-assets>
+
+			<!-- Scene camera -->
+			<a-entity camera look-controls position="-1 8 700" wasd-controls="acceleration:6000"></a-entity>
+
+			<!-- Box primitive -->
+			<!-- <a-box id="caixote"
+			color="olive"
+						 depth="2"
+						 height="2"
+						 width="2"
+						 position="0 0.5 -6"
+						 rotation="0 45 0">
+			</a-box> -->
+
+			<!-- Text entity -->
+			<!-- <a-entity id="texto"
+								text="color: #ff0000; value: GET OUT OF MY HOUSE" position="0 7.23463 -6"
+								text="width: 6;
+											color: black;
+											value: A rock is any naturally occurring solid mass or aggregate of minerals or mineraloid matter. It is categorized by the minerals included, its chemical composition and the way in which it is formed. Rocks are usually grouped into three main groups: igneous rocks, metamorphic rocks and sedimentary rocks. Rocks form the Earth's outer solid layer, the crust. ">
+			</a-entity> -->
+
+			<!-- Text entity 2 -->
+			<!-- <a-text position=“16 2 -6”
+							width=“20"
+							font= “./GangsterGrotesk-Regular-msdf.json”
+							font-image= “./GangsterGrotesk-Regular-msdf.png”
+							negate=“false”
+							color=“black”
+							value=“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. “>
+			</a-text> -->
+
+			<a-entity id="texto" position="0 100 -6"
+								text="width: 900;
+								font: ./IrishUncialfabeta-Bold-msdf.json;
+											font-image: ./IrishUncialfabeta-Bold-msdf.png;
+											color: yellow;
+											negate: false;
+											align: center;
+											lineHeight: 50;
+											value: TO WHERE THE WATER AND THE EARTH CARESS
+AND THE DOWN OF A PEACH SAYS
+DO I LOOK FOR THOSE MILLIONAIRES
+LIKE A MACHIAVELLIAN GIRL WOULD
+WHEN I COULD WEAR A SUNSET?"
+								>
+			</a-entity>
+
+			<a-entity id="sound" position="-5.48883 1.046 -7.341" sound="src: #song-mp3; autoplay: true; distanceModel: linear"></a-entity>
+
+
+		<a-sky src="#ceu">
+
+		</a-sky>
+
+
+			<!-- Video primitive -->
+  		<!-- <a-video id="videoclipe" src="#rocks-mp4"
+							 width="8"
+							 height="4.5"
+							 position="14 2 -6">
+			</a-video> -->
+
+			<!-- PLY point cloud entity -->
+			<!-- <a-entity id="ply" ply-pointcloud-model="src: #rock-ply;
+																			pointSize: 0.03"
+								position="26 0 -6"
+								rotation="0 0 -5"
+								scale="0.75 0.75 0.75">
+			</a-entity> -->
+
+			<!-- GLB mesh entity -->
+			<a-entity id="modelo" rotation="1 180 2" gltf-model="#rock-glb"
+								position="-0.47789 -170.46412 -10.5758"
+								scale="60 60 60">
+			</a-entity>
+
+			<a-entity id="light1" light="type: point; intensity: 7; color: #ccc8fe; decay: 3.28; angle: 38.44; castShadow: false; penumbra: 0"
+			 position="12.49518 189.03422 147.76803"></a-entity>
+
+
+		</a-scene>
+</body>
+</html>
